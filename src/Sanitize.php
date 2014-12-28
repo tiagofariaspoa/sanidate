@@ -33,11 +33,7 @@
 
 		public function isValidEmail($email)
 		{
-	        if (filter_var($this->sanitizeEmail($email), FILTER_VALIDATE_EMAIL)) {
-	            return true;
-	        }
-
-	        return false;
+	        return !filter_var($this->email($email), FILTER_VALIDATE_EMAIL) ? false : true;
 		}
 
 		public function isValidURL($url)

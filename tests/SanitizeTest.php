@@ -45,4 +45,24 @@
 				
 			$this->assertFalse( $output );
 		}
+		
+		public function testEmailValidShoulReturnTrue()
+		{
+			$input = "user@google.com";
+			
+			$sanitize = new Sanitize();
+			$output = $sanitize->isValidEmail( $input );
+			
+			$this->assertTrue( $output );
+		}
+		
+		public function testEmailInvalidShoulReturnFalse()
+		{
+			$input = "user@google.com.";
+				
+			$sanitize = new Sanitize();
+			$output = $sanitize->isValidEmail( $input );
+				
+			$this->assertFalse( $output );
+		}
 	}

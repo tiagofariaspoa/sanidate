@@ -25,4 +25,24 @@
 			
 			$this->assertEquals($extepcted, $output);
 		}
+		
+		public function testIpValidShouldReturnTrue()
+		{
+			$input = "127.0.0.1";
+			
+			$sanitize = new Sanitize();
+			$output = $sanitize->isValidIP( $input );
+			
+			$this->assertTrue( $output );
+		}
+		
+		public function testIpInvalidShouldReturnFalse()
+		{
+			$input = "127.0.0.1.1";
+				
+			$sanitize = new Sanitize();
+			$output = $sanitize->isValidIP( $input );
+				
+			$this->assertFalse( $output );
+		}
 	}

@@ -1,0 +1,15 @@
+{
+    "name": "tiago/sanidate",
+    "authors": [
+        {
+            "name": "Tiago Oliveira de Farias",
+            "email": "tiago.farias.poa@gmail.com"
+        }
+    ],
+    "require": {
+	"php": ">=5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.3.*"
+    }
+}

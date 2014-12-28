@@ -65,4 +65,24 @@
 				
 			$this->assertFalse( $output );
 		}
+		
+		public function testURLlValidShoulReturnTrue()
+		{
+			$input = "http://www.phpunit.com";
+				
+			$sanitize = new Sanitize();
+			$output = $sanitize->isValidURL( $input );
+				
+			$this->assertTrue( $output );
+		}
+		
+		public function testURLInvalidShoulReturnFalse()
+		{
+			$input = "http:/www.phpunit.com";
+		
+			$sanitize = new Sanitize();
+			$output = $sanitize->isValidURL( $input );
+		
+			$this->assertFalse( $output );
+		}
 	}

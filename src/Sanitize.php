@@ -18,7 +18,7 @@
 			return filter_var($email, FILTER_SANITIZE_EMAIL);
 		}
 
-		public function sanitizeURL($url)
+		public function url($url)
 		{
 			return filter_var($url, FILTER_SANITIZE_URL);
 		}
@@ -31,16 +31,19 @@
 			return !filter_var($ip, FILTER_VALIDATE_IP) ? false : true;
 		}
 
+		/**
+		 * @return bool
+		 **/
 		public function isValidEmail($email)
 		{
 	        return !filter_var($this->email($email), FILTER_VALIDATE_EMAIL) ? false : true;
 		}
 
+		/**
+		 * @return bool
+		 **/
 		public function isValidURL($url)
 		{	        
-	        if (filter_var($this->sanitizeURL($url), FILTER_VALIDATE_URL)) {
-	            return true;
-	        }
-	        return false;
+	        return !filter_var($this->url($url), FILTER_VALIDATE_URL) ? false : true;
 		}
 	}

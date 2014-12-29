@@ -36,7 +36,7 @@
 		 **/
 		public function isValidEmail($email)
 		{
-	        return !filter_var($this->email($email), FILTER_VALIDATE_EMAIL) ? false : true;
+	        	return !filter_var($this->email($email), FILTER_VALIDATE_EMAIL) ? false : true;
 		}
 
 		/**
@@ -44,6 +44,6 @@
 		 **/
 		public function isValidURL($url)
 		{	        
-	        return !filter_var($this->url($url), FILTER_VALIDATE_URL) ? false : true;
+	        	return !filter_var($this->url($url), FILTER_VALIDATE_URL) ? false : true;
 		}
 	}

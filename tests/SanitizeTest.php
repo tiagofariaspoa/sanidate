@@ -85,4 +85,34 @@
 		
 			$this->assertFalse( $output );
 		}
+		
+		public function testFloatShouldRemoveAlphaCharacters()
+		{
+			$input = 'R$ -9493.98';
+				
+			$sanitize = new Sanitize();
+			$output = $sanitize->float( $input );
+				
+			$this->assertEquals(-949398, $output);
+		}
+		
+		public function testFloatShouldAllowFraction()
+		{
+			$input = 'R$ -9493.98';
+
+			$sanitize = new Sanitize();
+			$output = $sanitize->floatAllowFraction( $input );
+			
+			$this->assertEquals(-9493.98, $output);
+		}
+		
+		public function testFloatAllowThousand()
+		{
+			$input = 'R$ -94,939';
+				
+			$sanitize = new Sanitize();
+			$output = $sanitize->floatAllowThousand( $input );
+				
+			$this->assertEquals('-94,939', $output);
+		}
 	}
